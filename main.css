@@ -70,18 +70,26 @@ button {
     font-size: 16px;
     color: #333;
 }
+.basket .product-item:last-child { border-bottom: none; }
 
-.basket .product-item:last-child {
-    border-bottom: none;
+.product-name {
+    flex: 1;
+    cursor: text; 
 }
 
-.basket .product-item:nth-of-type(1) {
+.product-item.is-bought .product-name {
     text-decoration: line-through;
     color: #777;
+    cursor: default;
 }
 
+.product-item.is-bought .amount-block,
+.product-item.is-bought .delete {
+    display: none;
+}
 
-.basket .product-item > input[type="text"] {
+.edit-name-input {
+    flex: 1;
     border: 1px solid #3498db;
     border-radius: 3px;
     padding: 6px 10px;
@@ -90,86 +98,77 @@ button {
     outline: none;
 }
 
-.amount-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-left: auto;
-    margin-right: 30px;
+.amount-block { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 10px; 
+    margin-left: auto; 
+    margin-right: 30px; 
     width: 120px; 
 }
-
-.amount-block button {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.minus {
-    background-color: #e74c3c;
-}
-.minus:hover {
-	background-color: #c0392b;
+.amount-block button { 
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; 
+    border: none; 
+    color: white; 
+    font-size: 18px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
 }
 
- .plus {
-    background-color: #2ecc71;
-}
-.plus:hover {
-	background-color: #27ae60;
-}
+.minus { background-color: #e74c3c; }
+.minus:hover:not(:disabled) { background-color: #c0392b; }
 
-
-.amount {
-    background-color: #e0e0e0;
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-weight: bold;
-    color: #333;
+.minus:disabled {
+    background-color: #f19b9b;
+    cursor: not-allowed;
+    box-shadow: none;
 }
 
-.status {
-    display: flex;
+.plus { background-color: #2ecc71; }
+.plus:hover { background-color: #27ae60; }
+.amount { 
+    background-color: #e0e0e0; 
+    padding: 4px 12px; 
+    border-radius: 4px; 
+    font-weight: bold; 
+    color: #333; 
+}
+
+.status { 
+    display: flex; 
     gap: 10px;
-    align-items: center;
-    min-width: 140px;
+    align-items: center; 
+    min-width: 140px; 
     justify-content: flex-end;
-}
-
-.status-button {
-    background-color: #f0f0f0;
-    border: 1px solid #dcdcdc;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
+ }
+.status-button { 
+    background-color: #f0f0f0; 
+    border: 1px solid #dcdcdc; 
+    padding: 8px 15px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 14px; 
+    font-weight: bold; 
+    color: #555; 
     min-width: 100px;
-}
-.delete {
-    background-color: #e74c3c;
+ }
+.delete { 
+    background-color: #e74c3c; 
     color: white;
     border: none;
     width: 34px;
     height: 34px;
     border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-}
-.delete:hover {
-	background-color: #c0392b;
-}
-
+    cursor: pointer; 
+    font-weight: bold; 
+    font-size: 16px; }
+.delete:hover { background-color: #c0392b; }
 .short-basket {
     width: 400px;
     display: flex;
